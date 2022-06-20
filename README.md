@@ -25,3 +25,9 @@ Get portal-ui container shell :
 ```
 docker compose exec portal-ui sh
 ```
+
+Get users-api container shell :
+
+```
+docker compose exec users-api sh
+```

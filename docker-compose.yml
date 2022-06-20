@@ -10,3 +10,25 @@ services:
       - ${PORTAL_UI_PORT}:${PORTAL_UI_PORT}
     volumes:
       - ../clin-portal-ui:/home/node/clin-portal-ui
+
+  users-api:
+    image: node:16.14-alpine
+    user: node
+    working_dir: /home/node/clin-users-api
+    entrypoint: tail -f /dev/null
+    ports:
+      - ${USERS_API_PORT}:${USERS_API_PORT}
+    volumes:
+      - ../clin-users-api:/home/node/clin-users-api
+
+  users-postgres:
+    image: postgres:14.3-alpine
+    ports:
+      - ${USERS_POSTGRES_PORT}:5432
+    volumes:
+      - users-postgres-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=password
+
+volumes:
+  users-postgres-data:
