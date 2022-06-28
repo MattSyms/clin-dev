@@ -1,4 +1,6 @@
-# CLIN Development Stack
+# CLIN Dev
+
+CLIN development stack.
 
 ## Requirement
 
