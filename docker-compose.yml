@@ -13,6 +13,16 @@ services:
       - ~/.ssh:/home/node/.ssh
       - ../clin-portal-ui:/home/node/clin-portal-ui
 
+  arranger:
+    image: node:18.1-alpine
+    user: node
+    working_dir: /home/node/clin-arranger
+    entrypoint: tail -f /dev/null
+    ports:
+      - ${ARRANGER_PORT}:${ARRANGER_PORT}
+    volumes:
+      - ../clin-arranger:/home/node/clin-arranger
+
   users-api:
     image: node:16.14-alpine
     user: node
